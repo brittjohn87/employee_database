@@ -1,0 +1,23 @@
+<h1>Employee List:</h1>
+<br />
+
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Role</th>
+		</tr>
+	</thead>
+
+	<tbody>
+<% @users.each do |u| %>
+	<tr>
+		<td><%= u.name %></td>
+		<td><%= u.email %></td>
+		<td><%= u.role.upcase %></td>
+<% end %>
+	</tr>
+	</tbody>
+</table>
