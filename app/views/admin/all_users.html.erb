@@ -6,17 +6,18 @@
 	<thead>
 		<tr>
 			<th>Name</th>
-			<th>Email</th>
 			<th>Role</th>
+			<th>Current Supervisor</th>
 		</tr>
 	</thead>
 
 	<tbody>
-<% @users.each do |u| %>
+<% @users.each do |user| %>
 	<tr>
-		<td><%= u.name %></td>
-		<td><%= u.email %></td>
-		<td><%= u.role.upcase %></td>
+		<td><%= user.name.capitalize %></td>
+		<td><%= user.role.upcase %></td>
+		<td><%= user.supervisor.capitalize %></td>
+		<td><%= link_to "Select User", show_user_path(id: user.id), class: "btn btn-warning" %></td>
 <% end %>
 	</tr>
 	</tbody>

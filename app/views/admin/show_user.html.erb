@@ -1,0 +1,22 @@
+<h1>Profile for <%= @user.email %>:</h1>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Email: </th>
+			<th>Role: </th>	
+			<th>Action: </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><%= @user.email %></td>
+			<td><%= @user.role %></td>	
+			<td>
+			  		<%= link_to "Delete User", delete_user_path(id: @user.id), data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+			</td>
+		</tr>	
+	</tbody>
+</table>
+
+<%= link_to 'All Users', all_users_path %>
