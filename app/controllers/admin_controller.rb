@@ -13,7 +13,7 @@ class AdminController < ApplicationController
 	def edit_user
 		@user = User.find(params[:id])
 		@user.update(supervisor: params[:supervisor])
-		redirect_back(fallback_location: root_path)
+		redirect_to all_users_path
 	end
 
 	def delete_user

@@ -5,18 +5,18 @@
 <table class="table">
 	<thead>
 		<tr>
-			<th>Name</th>
-			<th>Role</th>
-			<th>Current Supervisor</th>
+			<th>Name:</th>
+			<th>Role:</th>
+			<th>Current Supervisor:</th>
 		</tr>
 	</thead>
 
 	<tbody>
 <% @users.each do |user| %>
 	<tr>
-		<td><%= user.name.capitalize %></td>
+		<td><%= user.name.upcase %></td>
 		<td><%= user.role.upcase %></td>
-		<td><%= user.supervisor.capitalize %></td>
+		<td><%= user.supervisor.upcase %></td>
 		<td><%= link_to "Select User", show_user_path(id: user.id), class: "btn btn-warning" %></td>
 <% end %>
 	</tr>

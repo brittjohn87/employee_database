@@ -3,28 +3,30 @@
 <table class="table">
 	<thead>
 		<tr>
-			<th>Email: </th>
-			<th>Role: </th>	
-			<th>Action: </th>
+			<th>Name:</th>
+			<th>Role:</th>
+			<th>Current Supervisor:</th>	
+			<th>New Supervisor:</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
-			<td><%= @user.email %></td>
-			<td><%= @user.role %></td>	
+			<td><%= @user.name.upcase %></td>
+			<td><%= @user.role.upcase %></td>
+			<td><%= @user.supervisor.upcase %></td>	
 			<td>
 				<%= form_tag edit_user_path do %>
-						<%= select_tag(:supervisor, @supervisor.collect {|s| [s.name, s.name]}, {include_blank: "Please select a supervisor"}) %>
-
-<%= f.select :supervisor, @supervisor.collect {|s| [s.name, s.name]}, {include_blank: "Please select a supervisor"} %>
-
+						<%= select_tag(:supervisor, options_for_select(@supervisor.collect {|s| [s.name, s.name]}), :prompt => "Please select") %>
 			  		<%= hidden_field_tag :id, @user.id %>
-			  		<%= submit_tag "Update Role", class: "btn btn-warning" %>
+
+			  			<n/>
+
+			  		<%= submit_tag "Update Supervisor", class: "btn btn-warning" %>
 			  		<%= link_to "Delete User", delete_user_path(id: @user.id), data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-					<% end %>
+				<% end %>
 			</td>
 		</tr>	
 	</tbody>
 </table>
 
-<%= link_to 'All Users', all_users_path %>
+<%= link_to 'Back', all_users_path, class: "btn btn-info" %>
