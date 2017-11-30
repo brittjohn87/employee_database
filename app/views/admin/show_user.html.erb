@@ -13,7 +13,15 @@
 			<td><%= @user.email %></td>
 			<td><%= @user.role %></td>	
 			<td>
+				<%= form_tag edit_user_path do %>
+						<%= select_tag(:supervisor, @supervisor.collect {|s| [s.name, s.name]}, {include_blank: "Please select a supervisor"}) %>
+
+<%= f.select :supervisor, @supervisor.collect {|s| [s.name, s.name]}, {include_blank: "Please select a supervisor"} %>
+
+			  		<%= hidden_field_tag :id, @user.id %>
+			  		<%= submit_tag "Update Role", class: "btn btn-warning" %>
 			  		<%= link_to "Delete User", delete_user_path(id: @user.id), data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+					<% end %>
 			</td>
 		</tr>	
 	</tbody>

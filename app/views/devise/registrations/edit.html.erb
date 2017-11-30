@@ -47,7 +47,7 @@
 
   <div class="field">
     <%= f.label :supervisor %>
-    <%= f.select(:supervisor, options_for_select(User.where(role: "supervisor")), :prompt => "Please select") %>
+    <%= f.select :supervisor, @supervisor.collect {|s| [s.name, s.name]}, {include_blank: "Please select a supervisor"} %>
   </div>
 
 
