@@ -1,4 +1,4 @@
-<h1>Profile for <%= @user.email %>:</h1>
+<h1>Profile for <%= @user.name.upcase %>:</h1>
 
 <table class="table">
 	<thead>
@@ -22,11 +22,13 @@
 			  			<n/>
 
 			  		<%= submit_tag "Update Supervisor", class: "btn btn-warning" %>
+			  		<% if can? :manage, :all %>
 			  		<%= link_to "Delete User", delete_user_path(id: @user.id), data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+			  		<% end %>
 				<% end %>
 			</td>
 		</tr>	
 	</tbody>
 </table>
 
-<%= link_to 'Back', all_users_path, class: "btn btn-info" %>
+<%= link_to 'Home', root_path, class: "btn btn-info" %>

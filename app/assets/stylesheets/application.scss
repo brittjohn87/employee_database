@@ -17,3 +17,26 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+
+@import url('https://fonts.googleapis.com/css?family=Arvo|Yatra+One');
+
+body {
+	background-color: whitesmoke;
+}
+
+.navbar-default {
+	font-family: 'Yatra One', cursive;
+}
+
+h1, th {
+	font-family: 'Yatra One', cursive;
+	font-size: x-large;
+}
+
+td {
+	font-family: 'Arvo', serif;
+}
+
+.btn-info {
+	font-family: 'Yatra One', cursive;
+}

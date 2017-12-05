@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  get 'all_users' => 'admin#all_users'
+  root 'admin#all_users'
+
+  get  'supervisor_users' => 'admin#supervisor_users'
 
   get 'show_user' => 'admin#show_user'
 

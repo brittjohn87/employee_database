@@ -6,6 +6,10 @@ class AdminController < ApplicationController
 		@users = User.where(role: "employee")
 	end
 
+	def supervisor_users
+		@users = User.where(role: "supervisor")
+	end
+
 	def show_user 
 		@user = User.find(params[:id])
 	end
@@ -13,7 +17,7 @@ class AdminController < ApplicationController
 	def edit_user
 		@user = User.find(params[:id])
 		@user.update(supervisor: params[:supervisor])
-		redirect_to all_users_path
+		redirect_to root_path
 	end
 
 	def delete_user
