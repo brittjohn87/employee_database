@@ -3,11 +3,11 @@ class AdminController < ApplicationController
 	before_action :authenticate_user!
 
 	def all_users
-		@users = User.where(role: "employee")
+		@users = User.where(role: "employee").order(:name)
 	end
 
 	def supervisor_users
-		@users = User.where(role: "supervisor")
+		@users = User.where(role: "supervisor").order(:name)
 	end
 
 	def show_user 
