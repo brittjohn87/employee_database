@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'show_user' => 'admin#show_user'
 
   post 'edit_user' => 'admin#edit_user'
+
+  post 'edit_role' => 'admin#edit_role'
   
   post 'delete_user' => 'admin#delete_user'
   

@@ -5,6 +5,7 @@
 		<tr>
 			<th>Name:</th>
 			<th>Role:</th>
+			<th>New Role:</th>
 			<th>Current Supervisor:</th>	
 			<th>New Supervisor:</th>
 		</tr>
@@ -13,6 +14,12 @@
 		<tr>
 			<td><%= @user.name.upcase %></td>
 			<td><%= @user.role.upcase %></td>
+			<td><%= form_tag edit_role_path do %>
+						<%= select_tag(:role, options_for_select([ "employee", "supervisor" ]), :prompt => "Please select") %>
+			  		<%= hidden_field_tag :id, @user.id %>
+			  		<n><%= submit_tag "Update", class: "btn btn-warning" %>
+			  	<% end %>
+			</td>
 			<td><%= @user.supervisor.upcase %></td>	
 			<td>
 				<%= form_tag edit_user_path do %>
@@ -21,7 +28,7 @@
 
 			  			<n/>
 
-			  		<%= submit_tag "Update Supervisor", class: "btn btn-warning" %>
+			  		<%= submit_tag "Update", class: "btn btn-warning" %>
 			  		<% if can? :manage, :all %>
 			  		<%= link_to "Delete User", delete_user_path(id: @user.id), data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
 			  		<% end %>

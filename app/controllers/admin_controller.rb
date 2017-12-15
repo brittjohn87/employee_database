@@ -20,6 +20,13 @@ class AdminController < ApplicationController
 		redirect_to root_path
 	end
 
+	def edit_role
+		@user = User.find(params[:id])
+		@user.update(role: params[:role])
+		redirect_to root_path
+		
+	end
+
 	def delete_user
     @user = User.find(params[:id].to_i)
     @user.destroy
